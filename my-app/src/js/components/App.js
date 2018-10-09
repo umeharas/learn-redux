@@ -1,14 +1,21 @@
-import React from 'react';
+// src/js/components/App.js
+import React from "react";
 import styled from 'styled-components';
+import List from "./List";
+import Form from './Form'
 
-export default class Body extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
       <div>
         <MainBg>
           <Container>
-            <Title>React Redux Practice</Title>
-            
+            <Title>React Redux To-Do List</Title>
+            <List />
+            <div className="col-md-4 offset-md-1">
+              <h2>Add a new task to do</h2>
+              <Form />
+            </div>
           </Container>
         </MainBg>
       </div>
@@ -24,7 +31,7 @@ const Title = styled.h1`
 
 const MainBg = styled.div`
   background: linear-gradient(to bottom, #2ce0d1 0%,#7db9e8 100%);
-  padding: 120px 0;
+  padding: 50px 0;
   min-height: 100vh;
 `;
 

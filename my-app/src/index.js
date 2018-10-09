@@ -2,23 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/common.scss';
 import './css/normalize.scss';
-import Body from './js/components/body'
+import Body from './js/index'
 
-class Main extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div>
-        <Body/>
-      </div>
-    )
-  }
-}
+// class Main extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//         <Body/>
+//       </div>
+//     )
+//   }
+// }
 
 ReactDOM.render(
-  <Main />, 
+  <Body />, 
   document.getElementById('app')
 );

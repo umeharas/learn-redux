@@ -1,6 +1,25 @@
 {
   "name": "my-app",
   "version": "0.1.0",
+  "babel": {
+    "presets": [
+      "latest",
+      "env",
+      "react"
+    ],
+    "plugins": [
+      [
+        "transform-runtime",
+        {
+          "polyfill": false,
+          "regenerator": true
+        }
+      ],
+      "transform-decorators-legacy",
+      "transform-object-rest-spread",
+      "add-module-exports"
+    ]
+  },
   "private": true,
   "dependencies": {
     "node-sass": "^4.9.3",
@@ -25,6 +44,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "redux": "^4.0.0"
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "uuid": "^3.3.2"
   }
 }
