@@ -11,11 +11,15 @@ export default class App extends React.Component {
         <MainBg>
           <Container>
             <Title>React Redux To-Do List</Title>
-            <List />
-            <div className="col-md-4 offset-md-1">
-              <h2>Add a new task to do</h2>
-              <Form />
-            </div>
+            <FlexContainer>
+              <FlexInner>
+                <List />
+              </FlexInner>
+              <FlexInner>
+                <h2>Add a new task</h2>
+                <Form />
+              </FlexInner>
+            </FlexContainer>
           </Container>
         </MainBg>
       </div>
@@ -37,7 +41,18 @@ const MainBg = styled.div`
 
 const Container = styled.div`
   margin: 0 auto;
-  width: 600px;
+  width: 800px;
   height: 50px;
-  background-color: #fff;
+`;
+
+const FlexContainer = styled.div`
+  display: flex;
+`;
+const FlexInner = styled.div`
+  width: 49%;
+  background-color: rgba(255,255,255,0.2);
+  padding: 12px 20px 80px;
+  &:first-of-type {
+    margin-right: 2%;
+  }
 `;

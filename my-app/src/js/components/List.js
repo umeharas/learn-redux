@@ -1,13 +1,14 @@
 // src/js/components/List.js
 import React from "react";
 import { connect } from "react-redux";
+
 const mapStateToProps = state => {
   return { todos: state.todos };
 };
 const ConnectedList = ({ todos }) => (
-  <ul className="list-group list-group-flush">
+  <ul>
     {todos.map(el => (
-      <li className="list-group-item" key={el.id}>
+      <li key={el.id}>
         {el.title}
       </li>
     ))}
