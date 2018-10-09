@@ -1,6 +1,7 @@
 // src/js/components/List.js
 import React from "react";
 import { connect } from "react-redux";
+import Remover from './Remover';
 
 const mapStateToProps = state => {
   return { todos: state.todos };
@@ -10,6 +11,7 @@ const ConnectedList = ({ todos }) => (
     {todos.map(el => (
       <li key={el.id}>
         {el.title}
+        <Remover id={el.id}/>
       </li>
     ))}
   </ul>

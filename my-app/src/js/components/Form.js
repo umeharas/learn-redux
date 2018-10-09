@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import uuidv1 from 'uuid';
-import { addTodo } from '../actions/index';
+import { addTodo, resetTodo} from '../actions/index';
 
 const mapDispatchToProps = dispatch => {
   return {
-    addTodo: todo => dispatch(addTodo(todo))
+    addTodo: todo => dispatch(addTodo(todo)),
+    resetTodo: todo => dispatch(resetTodo(todo))
   };
 }
 
@@ -17,6 +18,7 @@ class ConnectedForm extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
   handleChange(event) {
     this.setState({ [event.target.id]: event.target.value });
@@ -28,10 +30,14 @@ class ConnectedForm extends Component {
     this.props.addTodo({ title, id });
     this.setState({ title: "" });
   }
+  handleReset(event) {
+    event.preventDefault();
+    this.props.resetTodo();
+  }
   render() {
     const { title } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} onReset={this.handleReset}>
         <div className="form-group">
           <label htmlFor="title">Content</label>
           <input
@@ -42,8 +48,11 @@ class ConnectedForm extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <button type="submit" className="btn btn-success btn-lg">
+        <button type="submit">
           Add
+        </button>
+        <button type="reset">
+          Reset All
         </button>
       </form>
     );
