@@ -12,14 +12,11 @@ const mapDispatchToProps = dispatch => {
 class ConnectedRemover extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      id: this.props.id
-    };
     this.handleRemove = this.handleRemove.bind(this);
   }
   handleRemove(event) {
     event.preventDefault();
-    const id = this.state.id;
+    const id = this.props.id;
     this.props.removeTodo(id);
   }
   render() {
